@@ -6,7 +6,7 @@
         /// Solve the cube
         /// </summary>
         /// <returns>Solve sequence</returns>
-        string solve();
+        string Solve();
 
         /// <summary>
         /// Cube to solve

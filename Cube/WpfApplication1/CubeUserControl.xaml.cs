@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading;
@@ -687,14 +686,12 @@ namespace WpfApplication1
 
             foreach (var cubieindex in (CubeGeomertyIndex[])Enum.GetValues(typeof(CubeGeomertyIndex)))
             {
-                IEnumerable<Tuple<CubeFace, Face>> colorList;
-                if (!CubeColorDict.TryGetValue(cubieindex, out colorList)) continue;
+                if (!CubeColorDict.TryGetValue(cubieindex, out var colorList)) continue;
 
                 var cubie = GeometryLists[(int)cubieindex];
                 foreach (var tuple in colorList)
                 {
-                    Color color;
-                    if (_brushDict.TryGetValue(colors[(int)tuple.Item2], out color))
+                    if (_brushDict.TryGetValue(colors[(int)tuple.Item2], out var color))
                         cubie[(int)tuple.Item1].Material = new DiffuseMaterial(new SolidColorBrush(color));
                 }
             }
@@ -769,7 +766,7 @@ namespace WpfApplication1
             ISolver solver = new SimpleSolver(tempCube);
             try
             {
-                var buffer = solver.solve();
+                var buffer = solver.Solve();
                 ExecuteSequence(buffer);
             }
             catch (Exception e)
@@ -1755,7 +1752,6 @@ namespace WpfApplication1
             GC.SuppressFinalize(this);
         }
 
-        [SuppressMessage("Microsoft.Usage", "CA2213")]
         protected virtual void Dispose(bool disposing)
         {
             if (_disposed) return;

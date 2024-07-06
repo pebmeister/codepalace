@@ -36,7 +36,7 @@ namespace WpfApplication1
         /// <summary>
         /// Rotate the face clockwise
         /// </summary>
-        public void rotate_clockwise()
+        public void Rotate_clockwise()
         {
             var temp = new[,]
             {
@@ -53,7 +53,7 @@ namespace WpfApplication1
         /// <summary>
         /// Rotate the face counter clockwise
         /// </summary>
-        public void rotate_counter_clockwise()
+        public void Rotate_counter_clockwise()
         {
             var temp = new[,]
             {

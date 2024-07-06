@@ -901,7 +901,7 @@ namespace WpfApplication1
         /// Solve the cube
         /// </summary>
         /// <returns>Solve sequence</returns>
-        public string solve()
+        public string Solve()
         {
             solve_quick_solve();
             if (Cube.Issolved()) return Cube.OptimizedMoves;

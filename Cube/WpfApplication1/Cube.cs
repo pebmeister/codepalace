@@ -9,8 +9,8 @@ namespace WpfApplication1
     {
         private const int CubeSize = 3;
 
-        private static readonly Random Rnd = new Random((int) DateTime.Now.Ticks);
-        private static readonly char[] Whitechars = {' ', '\t', '\n', '\r', '\v', '\f'};
+        private static readonly Random Rnd = new Random((int)DateTime.Now.Ticks);
+        private static readonly char[] Whitechars = { ' ', '\t', '\n', '\r', '\v', '\f' };
 
         private bool _record;
         private readonly StringBuilder _moves = new StringBuilder();
@@ -83,7 +83,7 @@ namespace WpfApplication1
         /// </summary>
         /// <param name="val">String cubie value</param>
         /// <returns>Face_val of cubie</returns>
-        private static FaceVal get_value(string val)
+        private static FaceVal Get_value(string val)
         {
             var result = 0;
             var shift = (val.Length - 1) * 8;
@@ -107,28 +107,28 @@ namespace WpfApplication1
             var index = 0;
 
             for (var row = 0; row < CubeSize; row++)
-            for (var col = 0; col < CubeSize; col++)
-                Up[row, col] = get_value(vals[index++]);
+                for (var col = 0; col < CubeSize; col++)
+                    Up[row, col] = Get_value(vals[index++]);
 
             for (var row = 0; row < CubeSize; row++)
-            for (var col = 0; col < CubeSize; col++)
-                Left[row, col] = get_value(vals[index++]);
+                for (var col = 0; col < CubeSize; col++)
+                    Left[row, col] = Get_value(vals[index++]);
 
             for (var row = 0; row < CubeSize; row++)
-            for (var col = 0; col < CubeSize; col++)
-                Front[row, col] = get_value(vals[index++]);
+                for (var col = 0; col < CubeSize; col++)
+                    Front[row, col] = Get_value(vals[index++]);
 
             for (var row = 0; row < CubeSize; row++)
-            for (var col = 0; col < CubeSize; col++)
-                Right[row, col] = get_value(vals[index++]);
+                for (var col = 0; col < CubeSize; col++)
+                    Right[row, col] = Get_value(vals[index++]);
 
             for (var row = 0; row < CubeSize; row++)
-            for (var col = 0; col < CubeSize; col++)
-                Back[row, col] = get_value(vals[index++]);
+                for (var col = 0; col < CubeSize; col++)
+                    Back[row, col] = Get_value(vals[index++]);
 
             for (var row = 0; row < CubeSize; row++)
-            for (var col = 0; col < CubeSize; col++)
-                Down[row, col] = get_value(vals[index++]);
+                for (var col = 0; col < CubeSize; col++)
+                    Down[row, col] = Get_value(vals[index++]);
         }
 
         /// <summary>
@@ -140,15 +140,15 @@ namespace WpfApplication1
         {
             var cloneCube = new Cube();
             for (var row = 0; row < CubeSize; row++)
-            for (var col = 0; col < CubeSize; col++)
-            {
-                cloneCube.Up[row, col] = Up[row, col];
-                cloneCube.Left[row, col] = Left[row, col];
-                cloneCube.Front[row, col] = Front[row, col];
-                cloneCube.Right[row, col] = Right[row, col];
-                cloneCube.Back[row, col] = Back[row, col];
-                cloneCube.Down[row, col] = Down[row, col];
-            }
+                for (var col = 0; col < CubeSize; col++)
+                {
+                    cloneCube.Up[row, col] = Up[row, col];
+                    cloneCube.Left[row, col] = Left[row, col];
+                    cloneCube.Front[row, col] = Front[row, col];
+                    cloneCube.Right[row, col] = Right[row, col];
+                    cloneCube.Back[row, col] = Back[row, col];
+                    cloneCube.Down[row, col] = Down[row, col];
+                }
 
             return cloneCube;
         }
@@ -169,7 +169,7 @@ namespace WpfApplication1
         /// </summary>
         public void Rotate_front_clockwise()
         {
-            Front.rotate_clockwise();
+            Front.Rotate_clockwise();
             for (var index = 0; index < CubeSize; index++)
             {
                 var temp = Up[CubeSize - 1, CubeSize - 1 - index];
@@ -188,7 +188,7 @@ namespace WpfApplication1
         /// </summary>
         public void Rotate_front_counterclockwise()
         {
-            Front.rotate_counter_clockwise();
+            Front.Rotate_counter_clockwise();
             for (var index = 0; index < CubeSize; index++)
             {
                 var temp = Up[CubeSize - 1, CubeSize - 1 - index];
@@ -207,7 +207,7 @@ namespace WpfApplication1
         /// </summary>
         public void Rotate_up_clockwise()
         {
-            Up.rotate_clockwise();
+            Up.Rotate_clockwise();
             for (var index = 0; index < CubeSize; index++)
             {
                 var temp = Front[0, index];
@@ -226,7 +226,7 @@ namespace WpfApplication1
         /// </summary>
         public void Rotate_up_counterclockwise()
         {
-            Up.rotate_counter_clockwise();
+            Up.Rotate_counter_clockwise();
             for (var index = 0; index < CubeSize; index++)
             {
                 var temp = Front[0, index];
@@ -245,7 +245,7 @@ namespace WpfApplication1
         /// </summary>
         public void Rotate_back_clockwise()
         {
-            Back.rotate_clockwise();
+            Back.Rotate_clockwise();
             for (var index = 0; index < CubeSize; index++)
             {
                 var temp = Up[0, index];
@@ -264,7 +264,7 @@ namespace WpfApplication1
         /// </summary>
         public void Rotate_back_counterclockwise()
         {
-            Back.rotate_counter_clockwise();
+            Back.Rotate_counter_clockwise();
             for (var index = 0; index < CubeSize; index++)
             {
                 var temp = Up[0, index];
@@ -283,7 +283,7 @@ namespace WpfApplication1
         /// </summary>
         public void Rotate_left_clockwise()
         {
-            Left.rotate_clockwise();
+            Left.Rotate_clockwise();
             for (var index = 0; index < CubeSize; index++)
             {
                 var temp = Up[index, 0];
@@ -302,7 +302,7 @@ namespace WpfApplication1
         /// </summary>
         public void Rotate_left_counterclockwise()
         {
-            Left.rotate_counter_clockwise();
+            Left.Rotate_counter_clockwise();
             for (var index = 0; index < CubeSize; index++)
             {
                 var temp = Up[index, 0];
@@ -321,7 +321,7 @@ namespace WpfApplication1
         /// </summary>
         public void Rotate_right_clockwise()
         {
-            Right.rotate_clockwise();
+            Right.Rotate_clockwise();
             for (var index = 0; index < CubeSize; index++)
             {
                 var temp = Up[index, CubeSize - 1];
@@ -340,7 +340,7 @@ namespace WpfApplication1
         /// </summary>
         public void Rotate_right_counterclockwise()
         {
-            Right.rotate_counter_clockwise();
+            Right.Rotate_counter_clockwise();
             for (var index = 0; index < CubeSize; index++)
             {
                 var temp = Up[CubeSize - 1 - index, CubeSize - 1];
@@ -359,7 +359,7 @@ namespace WpfApplication1
         /// </summary>
         public void Rotate_down_clockwise()
         {
-            Down.rotate_clockwise();
+            Down.Rotate_clockwise();
             for (var index = 0; index < CubeSize; index++)
             {
                 var temp = Front[CubeSize - 1, index];
@@ -378,7 +378,7 @@ namespace WpfApplication1
         /// </summary>
         public void Rotate_down_counterclockwise()
         {
-            Down.rotate_counter_clockwise();
+            Down.Rotate_counter_clockwise();
             for (var index = 0; index < CubeSize; index++)
             {
                 var temp = Front[CubeSize - 1, index];
@@ -505,17 +505,17 @@ namespace WpfApplication1
         /// </summary>
         public void Rotate_cube_up()
         {
-            Left.rotate_counter_clockwise();
-            Right.rotate_clockwise();
+            Left.Rotate_counter_clockwise();
+            Right.Rotate_clockwise();
             for (var row = 0; row < CubeSize; row++)
-            for (var col = 0; col < CubeSize; col++)
-            {
-                var temp = Up[row, col];
-                Up[row, col] = Front[row, col];
-                Front[row, col] = Down[row, col];
-                Down[row, col] = Back[CubeSize - 1 - row, CubeSize - 1 - col];
-                Back[CubeSize - 1 - row, CubeSize - 1 - col] = temp;
-            }
+                for (var col = 0; col < CubeSize; col++)
+                {
+                    var temp = Up[row, col];
+                    Up[row, col] = Front[row, col];
+                    Front[row, col] = Down[row, col];
+                    Down[row, col] = Back[CubeSize - 1 - row, CubeSize - 1 - col];
+                    Back[CubeSize - 1 - row, CubeSize - 1 - col] = temp;
+                }
 
             if (_record)
                 _moves.Append("Cu ");
@@ -526,17 +526,17 @@ namespace WpfApplication1
         /// </summary>
         public void Rotate_cube_down()
         {
-            Left.rotate_clockwise();
-            Right.rotate_counter_clockwise();
+            Left.Rotate_clockwise();
+            Right.Rotate_counter_clockwise();
             for (var row = 0; row < CubeSize; row++)
-            for (var col = 0; col < CubeSize; col++)
-            {
-                var temp = Down[row, col];
-                Down[row, col] = Front[row, col];
-                Front[row, col] = Up[row, col];
-                Up[row, col] = Back[CubeSize - 1 - row, CubeSize - 1 - col];
-                Back[CubeSize - 1 - row, CubeSize - 1 - col] = temp;
-            }
+                for (var col = 0; col < CubeSize; col++)
+                {
+                    var temp = Down[row, col];
+                    Down[row, col] = Front[row, col];
+                    Front[row, col] = Up[row, col];
+                    Up[row, col] = Back[CubeSize - 1 - row, CubeSize - 1 - col];
+                    Back[CubeSize - 1 - row, CubeSize - 1 - col] = temp;
+                }
 
             if (_record)
                 _moves.Append("Cd ");
@@ -547,17 +547,17 @@ namespace WpfApplication1
         /// </summary>
         public void Rotate_cube_left()
         {
-            Down.rotate_counter_clockwise();
-            Up.rotate_clockwise();
+            Down.Rotate_counter_clockwise();
+            Up.Rotate_clockwise();
             for (var row = 0; row < CubeSize; row++)
-            for (var col = 0; col < CubeSize; col++)
-            {
-                var temp = Front[row, col];
-                Front[row, col] = Right[row, col];
-                Right[row, col] = Back[row, col];
-                Back[row, col] = Left[row, col];
-                Left[row, col] = temp;
-            }
+                for (var col = 0; col < CubeSize; col++)
+                {
+                    var temp = Front[row, col];
+                    Front[row, col] = Right[row, col];
+                    Right[row, col] = Back[row, col];
+                    Back[row, col] = Left[row, col];
+                    Left[row, col] = temp;
+                }
 
             if (_record)
                 _moves.Append("Cl ");
@@ -568,17 +568,17 @@ namespace WpfApplication1
         /// </summary>
         public void Rotate_cube_right()
         {
-            Down.rotate_clockwise();
-            Up.rotate_counter_clockwise();
+            Down.Rotate_clockwise();
+            Up.Rotate_counter_clockwise();
             for (var row = 0; row < CubeSize; row++)
-            for (var col = 0; col < CubeSize; col++)
-            {
-                var temp = Front[row, col];
-                Front[row, col] = Left[row, col];
-                Left[row, col] = Back[row, col];
-                Back[row, col] = Right[row, col];
-                Right[row, col] = temp;
-            }
+                for (var col = 0; col < CubeSize; col++)
+                {
+                    var temp = Front[row, col];
+                    Front[row, col] = Left[row, col];
+                    Left[row, col] = Back[row, col];
+                    Back[row, col] = Right[row, col];
+                    Right[row, col] = temp;
+                }
 
             if (_record)
                 _moves.Append("Cr ");
@@ -823,7 +823,7 @@ namespace WpfApplication1
             int len2;
             do
             {
-                outstr = optimize_sequence_recursion(temp);
+                outstr = Optimize_sequence_recursion(temp);
                 len1 = temp.Length;
                 len2 = outstr.Length;
                 temp = outstr;
@@ -842,7 +842,7 @@ namespace WpfApplication1
         /// </summary>
         /// <param name="sequence">Sequence to optimize</param>
         /// <returns>Optimized sequence</returns>
-        private static string optimize_sequence_recursion(string sequence)
+        private static string Optimize_sequence_recursion(string sequence)
         {
 
             const string endMarker = "****";
@@ -886,7 +886,7 @@ namespace WpfApplication1
                         case "li":
                             add.Add("l");
                             subtract.Add("li");
-                            ignore.AddRange(new[] {"r", "ri", "ls", "rs"});
+                            ignore.AddRange(new[] { "r", "ri", "ls", "rs" });
                             addString = "L";
                             subtractString = "Li";
                             break;
@@ -896,7 +896,7 @@ namespace WpfApplication1
                         case "ri":
                             add.Add("r");
                             subtract.Add("ri");
-                            ignore.AddRange(new[] {"l", "li", "ls", "rs"});
+                            ignore.AddRange(new[] { "l", "li", "ls", "rs" });
                             addString = "R";
                             subtractString = "Ri";
                             break;
@@ -906,7 +906,7 @@ namespace WpfApplication1
                         case "fi":
                             add.Add("f");
                             subtract.Add("fi");
-                            ignore.AddRange(new[] {"b", "bi", "fs", "bs"});
+                            ignore.AddRange(new[] { "b", "bi", "fs", "bs" });
                             addString = "F";
                             subtractString = "Fi";
                             break;
@@ -916,7 +916,7 @@ namespace WpfApplication1
                         case "bi":
                             add.Add("b");
                             subtract.Add("bi");
-                            ignore.AddRange(new[] {"f", "fi", "fs", "bs"});
+                            ignore.AddRange(new[] { "f", "fi", "fs", "bs" });
                             addString = "B";
                             subtractString = "Bi";
                             break;
@@ -926,7 +926,7 @@ namespace WpfApplication1
                         case "ui":
                             add.Add("u");
                             subtract.Add("ui");
-                            ignore.AddRange(new[] {"d", "di", "us", "ds"});
+                            ignore.AddRange(new[] { "d", "di", "us", "ds" });
                             addString = "U";
                             subtractString = "Ui";
                             break;
@@ -936,7 +936,7 @@ namespace WpfApplication1
                         case "di":
                             add.Add("d");
                             subtract.Add("di");
-                            ignore.AddRange(new[] {"u", "ui", "us", "ds"});
+                            ignore.AddRange(new[] { "u", "ui", "us", "ds" });
                             addString = "D";
                             subtractString = "Di";
                             break;
@@ -964,7 +964,7 @@ namespace WpfApplication1
                         case "ds":
                             add.Add("us");
                             subtract.Add("ds");
-                            ignore.AddRange(new[] {"u", "ui", "d", "di"});
+                            ignore.AddRange(new[] { "u", "ui", "d", "di" });
                             addString = "Us";
                             subtractString = "Ds";
                             break;
@@ -974,7 +974,7 @@ namespace WpfApplication1
                         case "rs":
                             add.Add("ls");
                             subtract.Add("rs");
-                            ignore.AddRange(new[] {"l", "li", "r", "ri"});
+                            ignore.AddRange(new[] { "l", "li", "r", "ri" });
                             addString = "Ls";
                             subtractString = "Rs";
                             break;
@@ -984,7 +984,7 @@ namespace WpfApplication1
                         case "bs":
                             add.Add("fs");
                             subtract.Add("bs");
-                            ignore.AddRange(new[] {"f", "fi", "b", "bi"});
+                            ignore.AddRange(new[] { "f", "fi", "b", "bi" });
                             addString = "Fs";
                             subtractString = "Bs";
                             break;
@@ -1023,7 +1023,7 @@ namespace WpfApplication1
                 // recurse over ignore string
                 if (ignoreString.Length > 0)
                 {
-                    var opt = optimize_sequence_recursion(ignoreString);
+                    var opt = Optimize_sequence_recursion(ignoreString);
                     if (opt.Length > 0)
                         outstr += ' ' + opt;
                 }
@@ -1129,28 +1129,28 @@ namespace WpfApplication1
         {
             var sb = new StringBuilder();
             for (var row = 0; row < CubeSize; row++)
-            for (var col = 0; col < CubeSize; col++)
-                sb.Append(Up[row, col] + " ");
+                for (var col = 0; col < CubeSize; col++)
+                    sb.Append(Up[row, col] + " ");
 
             for (var row = 0; row < CubeSize; row++)
-            for (var col = 0; col < CubeSize; col++)
-                sb.Append(Left[row, col] + " ");
+                for (var col = 0; col < CubeSize; col++)
+                    sb.Append(Left[row, col] + " ");
 
             for (var row = 0; row < CubeSize; row++)
-            for (var col = 0; col < CubeSize; col++)
-                sb.Append(Front[row, col] + " ");
+                for (var col = 0; col < CubeSize; col++)
+                    sb.Append(Front[row, col] + " ");
 
             for (var row = 0; row < CubeSize; row++)
-            for (var col = 0; col < CubeSize; col++)
-                sb.Append(Right[row, col] + " ");
+                for (var col = 0; col < CubeSize; col++)
+                    sb.Append(Right[row, col] + " ");
 
             for (var row = 0; row < CubeSize; row++)
-            for (var col = 0; col < CubeSize; col++)
-                sb.Append(Back[row, col] + " ");
+                for (var col = 0; col < CubeSize; col++)
+                    sb.Append(Back[row, col] + " ");
 
             for (var row = 0; row < CubeSize; row++)
-            for (var col = 0; col < CubeSize; col++)
-                sb.Append(Down[row, col] + " ");
+                for (var col = 0; col < CubeSize; col++)
+                    sb.Append(Down[row, col] + " ");
 
             sb.Remove(sb.Length - 1, 1);
             return sb.ToString();

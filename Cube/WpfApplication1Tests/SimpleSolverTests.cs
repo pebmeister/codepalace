@@ -243,7 +243,7 @@ namespace WpfApplication1.Tests
             foreach (var test in tests)
             {
                 Rc.Set_cube(test);
-                Solver.solve();
+                Solver.Solve();
                 Assert.IsTrue(Rc.Issolved(), "solveTest FAILED");
             }
 
@@ -252,7 +252,7 @@ namespace WpfApplication1.Tests
                 Rc.Set_cube(test);
                 try
                 {
-                    Solver.solve();
+                    Solver.Solve();
                 }
                 catch (Exception)
                 {
