@@ -50,13 +50,13 @@ namespace WpfApplication1.Tests
 
             foreach (var test in tests)
             {
-                Rc.set_cube(test);
+                Rc.Set_cube(test);
                 Solver.solve_position_edges();
-                Assert.IsTrue(Rc.issolved(), "solve_position_edgesTest FAILED");
+                Assert.IsTrue(Rc.Issolved(), "solve_position_edgesTest FAILED");
             }
             foreach (var test in negativetests)
             {
-                Rc.set_cube(test);
+                Rc.Set_cube(test);
                 try
                 {
                     Solver.solve_position_edges();
@@ -85,13 +85,13 @@ namespace WpfApplication1.Tests
             };
             foreach (var test in tests)
             {
-                Rc.set_cube(test);
+                Rc.Set_cube(test);
                 Solver.solve_position_corner();
                 Assert.IsTrue(validate_up_corner_positions(), "solve_position_cornerTest FAILED");
             }
             foreach (var test in negativetests)
             {
-                Rc.set_cube(test);
+                Rc.Set_cube(test);
                 try
                 {
                     Solver.solve_position_corner();
@@ -116,7 +116,7 @@ namespace WpfApplication1.Tests
 
             foreach (var test in tests)
             {
-                Rc.set_cube(test);
+                Rc.Set_cube(test);
                 Solver.solve_corner(Rc.Up);
                 Assert.IsTrue(validate_corners(), "solve_cornerTest FAILED");
             }
@@ -135,7 +135,7 @@ namespace WpfApplication1.Tests
 
             foreach (var test in tests)
             {
-                Rc.set_cube(test);
+                Rc.Set_cube(test);
                 Solver.solve_cross(Rc.Up);
                 Assert.IsTrue(validate_cross(), "solve_crossTest FAILED");
             }
@@ -153,7 +153,7 @@ namespace WpfApplication1.Tests
 
             foreach (var test in tests)
             {
-                Rc.set_cube(test);
+                Rc.Set_cube(test);
                 Solver.solve_up_corners();
                 Assert.IsTrue(validate_up_corners(), "solve_up_corners FAILED");
             }
@@ -171,7 +171,7 @@ namespace WpfApplication1.Tests
 
             foreach (var test in tests)
             {
-                Rc.set_cube(test);
+                Rc.Set_cube(test);
                 Solver.solve_middle_layer();
                 Assert.IsTrue(validate_middle_layer(), "solve_middle_layerTest FAILED");
             }
@@ -189,9 +189,9 @@ namespace WpfApplication1.Tests
 
             foreach (var test in tests)
             {
-                Rc.set_cube(test);
+                Rc.Set_cube(test);
                 Solver.solve_quick_solve();
-                Assert.IsTrue(Rc.issolved(), "solve_quick_solveTest FAILED");
+                Assert.IsTrue(Rc.Issolved(), "solve_quick_solveTest FAILED");
             }
         }
 
@@ -207,7 +207,7 @@ namespace WpfApplication1.Tests
 
             foreach (var test in tests)
             {
-                Rc.set_cube(test);
+                Rc.Set_cube(test);
                 Solver.solve_up_cross();
                 Assert.IsTrue(validate_up_cross(), "solve_up_crossTest FAILED");
             }
@@ -242,23 +242,23 @@ namespace WpfApplication1.Tests
 
             foreach (var test in tests)
             {
-                Rc.set_cube(test);
+                Rc.Set_cube(test);
                 Solver.solve();
-                Assert.IsTrue(Rc.issolved(), "solveTest FAILED");
+                Assert.IsTrue(Rc.Issolved(), "solveTest FAILED");
             }
 
             foreach (var test in negativeTests)
             {
-                Rc.set_cube(test);
+                Rc.Set_cube(test);
                 try
                 {
                     Solver.solve();
                 }
                 catch (Exception)
                 {
-                    Assert.IsFalse(Rc.issolved(), "solveTest FAILED");
+                    Assert.IsFalse(Rc.Issolved(), "solveTest FAILED");
                 }
-                Assert.IsFalse(Rc.issolved(), "solveTest FAILED");
+                Assert.IsFalse(Rc.Issolved(), "solveTest FAILED");
             }
 
         }
@@ -761,25 +761,25 @@ namespace WpfApplication1.Tests
         public void CubeTest()
         {
             var cube = new Cube();
-            Assert.IsTrue(cube.issolved(), "CubeTest FAIL");
+            Assert.IsTrue(cube.Issolved(), "CubeTest FAIL");
         }
 
         [TestMethod, TestCategory("Cube"), Owner("Paul Baxter"), Priority(3)]
         public void init_cubeTest()
         {
             var cube = new Cube();
-            cube.scramble_cube();
-            Assert.IsFalse(cube.issolved(), "CubeTest FAIL");
-            cube.init_cube();
-            Assert.IsTrue(cube.issolved(), "CubeTest FAIL");
+            cube.Scramble_cube();
+            Assert.IsFalse(cube.Issolved(), "CubeTest FAIL");
+            cube.Init_cube();
+            Assert.IsTrue(cube.Issolved(), "CubeTest FAIL");
         }
 
         [TestMethod, TestCategory("Cube"), Owner("Paul Baxter"), Priority(3)]
         public void set_cubeTest()
         {
             var cube = new Cube();
-            cube.scramble_cube();
-            cube.set_cube(
+            cube.Scramble_cube();
+            cube.Set_cube(
                 "R R R R R R R R R " +
                 "G G G G G G G G G " +
                 "B B B B B B B B B " +
@@ -787,15 +787,15 @@ namespace WpfApplication1.Tests
                 "Y Y Y Y Y Y Y Y Y " +
                 "O O O O O O O O O "
             );
-            Assert.IsTrue(cube.issolved(), "set_cubeTest FAIL");
+            Assert.IsTrue(cube.Issolved(), "set_cubeTest FAIL");
         }
 
         [TestMethod, TestCategory("Cube"), Owner("Paul Baxter"), Priority(3)]
         public void cloneTest()
         {
             var cube = new Cube();
-            cube.scramble_cube();
-            var cube2 = cube.clone();
+            cube.Scramble_cube();
+            var cube2 = cube.Clone();
 
             var a = cube.ToString();
             var b = cube2.ToString();
@@ -807,9 +807,9 @@ namespace WpfApplication1.Tests
         {
 
             var cube = new Cube();
-            var result1 = cube.issolved();
-            cube.scramble_cube();
-            var result2 = cube.issolved();
+            var result1 = cube.Issolved();
+            cube.Scramble_cube();
+            var result2 = cube.Issolved();
             Assert.IsTrue(result1, "issolvedTest FAIL");
             Assert.IsFalse(result2, "issolvedTest FAIL");
         }
@@ -817,7 +817,7 @@ namespace WpfApplication1.Tests
         // ReSharper disable once ParameterOnlyUsedForPreconditionCheck.Local
         private static void testRotation(ICube cube, string expected, Action action, [CallerMemberName]  string testName = null)
         {
-            cube.set_cube(Startcube);
+            cube.Set_cube(Startcube);
             action();
 
             var str = cube.ToString();
@@ -836,7 +836,7 @@ namespace WpfApplication1.Tests
             var cube = new Cube();
             const string expected =
                 "1 2 3 4 5 6 18 15 12 10 11 46 13 14 47 16 17 48 25 22 19 26 23 20 27 24 21 7 29 30 8 32 33 9 35 36 37 38 39 40 41 42 43 44 45 34 31 28 49 50 51 52 53 54";
-            testRotation(cube, expected, () => cube.f());
+            testRotation(cube, expected, () => cube.Rotate_front_clockwise());
         }
 
         [TestMethod, TestCategory("Cube"), Owner("Paul Baxter"), Priority(3)]
@@ -845,7 +845,7 @@ namespace WpfApplication1.Tests
             var cube = new Cube();
             const string expected =
                 "1 2 3 4 5 6 28 31 34 10 11 9 13 14 8 16 17 7 21 24 27 20 23 26 19 22 25 48 29 30 47 32 33 46 35 36 37 38 39 40 41 42 43 44 45 12 15 18 49 50 51 52 53 54";
-            testRotation(cube, expected, () => cube.fi());
+            testRotation(cube, expected, () => cube.Rotate_front_counterclockwise());
         }
 
         [TestMethod, TestCategory("Cube"), Owner("Paul Baxter"), Priority(3)]
@@ -854,7 +854,7 @@ namespace WpfApplication1.Tests
             var cube = new Cube();
             const string expected =
                 "7 4 1 8 5 2 9 6 3 19 20 21 13 14 15 16 17 18 28 29 30 22 23 24 25 26 27 37 38 39 31 32 33 34 35 36 10 11 12 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54";
-            testRotation(cube, expected, () => cube.u());
+            testRotation(cube, expected, () => cube.Rotate_up_clockwise());
         }
 
         [TestMethod, TestCategory("Cube"), Owner("Paul Baxter"), Priority(3)]
@@ -863,7 +863,7 @@ namespace WpfApplication1.Tests
             var cube = new Cube();
             const string expected =
                 "3 6 9 2 5 8 1 4 7 37 38 39 13 14 15 16 17 18 10 11 12 22 23 24 25 26 27 19 20 21 31 32 33 34 35 36 28 29 30 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54";
-            testRotation(cube, expected, () => cube.ui());
+            testRotation(cube, expected, () => cube.Rotate_up_counterclockwise());
         }
 
         [TestMethod, TestCategory("Cube"), Owner("Paul Baxter"), Priority(3)]
@@ -872,7 +872,7 @@ namespace WpfApplication1.Tests
             var cube = new Cube();
             const string expected =
                 "30 33 36 4 5 6 7 8 9 3 11 12 2 14 15 1 17 18 19 20 21 22 23 24 25 26 27 28 29 54 31 32 53 34 35 52 43 40 37 44 41 38 45 42 39 46 47 48 49 50 51 10 13 16";
-            testRotation(cube, expected, () => cube.b());
+            testRotation(cube, expected, () => cube.Rotate_back_clockwise());
         }
 
         [TestMethod, TestCategory("Cube"), Owner("Paul Baxter"), Priority(3)]
@@ -881,7 +881,7 @@ namespace WpfApplication1.Tests
             var cube = new Cube();
             const string expected =
                 "16 13 10 4 5 6 7 8 9 52 11 12 53 14 15 54 17 18 19 20 21 22 23 24 25 26 27 28 29 1 31 32 2 34 35 3 39 42 45 38 41 44 37 40 43 46 47 48 49 50 51 36 33 30";
-            testRotation(cube, expected, () => cube.bi());
+            testRotation(cube, expected, () => cube.Rotate_back_counterclockwise());
         }
 
         [TestMethod, TestCategory("Cube"), Owner("Paul Baxter"), Priority(3)]
@@ -890,7 +890,7 @@ namespace WpfApplication1.Tests
             var cube = new Cube();
             const string expected =
                 "45 2 3 42 5 6 39 8 9 16 13 10 17 14 11 18 15 12 1 20 21 4 23 24 7 26 27 28 29 30 31 32 33 34 35 36 37 38 52 40 41 49 43 44 46 19 47 48 22 50 51 25 53 54";
-            testRotation(cube, expected, () => cube.l());
+            testRotation(cube, expected, () => cube.Rotate_left_clockwise());
         }
 
         [TestMethod, TestCategory("Cube"), Owner("Paul Baxter"), Priority(3)]
@@ -899,7 +899,7 @@ namespace WpfApplication1.Tests
             var cube = new Cube();
             const string expected =
                 "19 2 3 22 5 6 25 8 9 12 15 18 11 14 17 10 13 16 46 20 21 49 23 24 52 26 27 28 29 30 31 32 33 34 35 36 37 38 7 40 41 4 43 44 1 45 47 48 42 50 51 39 53 54";
-            testRotation(cube, expected, () => cube.li());
+            testRotation(cube, expected, () => cube.Rotate_left_counterclockwise());
         }
 
         [TestMethod, TestCategory("Cube"), Owner("Paul Baxter"), Priority(3)]
@@ -908,7 +908,7 @@ namespace WpfApplication1.Tests
             var cube = new Cube();
             const string expected =
                 "1 2 21 4 5 24 7 8 27 10 11 12 13 14 15 16 17 18 19 20 48 22 23 51 25 26 54 34 31 28 35 32 29 36 33 30 9 38 39 6 41 42 3 44 45 46 47 43 49 50 40 52 53 37";
-            testRotation(cube, expected, () => cube.r());
+            testRotation(cube, expected, () => cube.Rotate_right_clockwise());
         }
 
         [TestMethod, TestCategory("Cube"), Owner("Paul Baxter"), Priority(3)]
@@ -917,7 +917,7 @@ namespace WpfApplication1.Tests
             var cube = new Cube();
             const string expected =
                 "1 2 43 4 5 40 7 8 37 10 11 12 13 14 15 16 17 18 19 20 3 22 23 6 25 26 9 30 33 36 29 32 35 28 31 34 54 38 39 51 41 42 48 44 45 46 47 21 49 50 24 52 53 27";
-            testRotation(cube, expected, () => cube.ri());
+            testRotation(cube, expected, () => cube.Rotate_right_counterclockwise());
         }
 
         [TestMethod, TestCategory("Cube"), Owner("Paul Baxter"), Priority(3)]
@@ -926,7 +926,7 @@ namespace WpfApplication1.Tests
             var cube = new Cube();
             const string expected =
                 "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 43 44 45 19 20 21 22 23 24 16 17 18 28 29 30 31 32 33 25 26 27 37 38 39 40 41 42 34 35 36 52 49 46 53 50 47 54 51 48";
-            testRotation(cube, expected, () => cube.d());
+            testRotation(cube, expected, () => cube.Rotate_down_clockwise());
         }
 
         [TestMethod, TestCategory("Cube"), Owner("Paul Baxter"), Priority(3)]
@@ -935,7 +935,7 @@ namespace WpfApplication1.Tests
             var cube = new Cube();
             const string expected =
                 "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 25 26 27 19 20 21 22 23 24 34 35 36 28 29 30 31 32 33 43 44 45 37 38 39 40 41 42 16 17 18 48 51 54 47 50 53 46 49 52";
-            testRotation(cube, expected, () => cube.di());
+            testRotation(cube, expected, () => cube.Rotate_down_counterclockwise());
         }
 
         [TestMethod, TestCategory("Cube"), Owner("Paul Baxter"), Priority(3)]
@@ -944,7 +944,7 @@ namespace WpfApplication1.Tests
             var cube = new Cube();
             const string expected =
                 "1 2 3 4 5 6 7 8 9 10 11 12 22 23 24 16 17 18 19 20 21 31 32 33 25 26 27 28 29 30 40 41 42 34 35 36 37 38 39 13 14 15 43 44 45 46 47 48 49 50 51 52 53 54";
-            testRotation(cube, expected, () => cube.us());
+            testRotation(cube, expected, () => cube.Rotate_upslice_clockwise());
         }
 
         [TestMethod, TestCategory("Cube"), Owner("Paul Baxter"), Priority(3)]
@@ -953,7 +953,7 @@ namespace WpfApplication1.Tests
             var cube = new Cube();
             const string expected =
                 "1 2 3 4 5 6 7 8 9 10 11 12 40 41 42 16 17 18 19 20 21 13 14 15 25 26 27 28 29 30 22 23 24 34 35 36 37 38 39 31 32 33 43 44 45 46 47 48 49 50 51 52 53 54";
-            testRotation(cube, expected, () => cube.ds());
+            testRotation(cube, expected, () => cube.Rotate_downslice_clockwise());
         }
 
         [TestMethod, TestCategory("Cube"), Owner("Paul Baxter"), Priority(3)]
@@ -962,7 +962,7 @@ namespace WpfApplication1.Tests
             var cube = new Cube();
             const string expected =
                 "1 44 3 4 41 6 7 38 9 10 11 12 13 14 15 16 17 18 19 2 21 22 5 24 25 8 27 28 29 30 31 32 33 34 35 36 37 53 39 40 50 42 43 47 45 46 20 48 49 23 51 52 26 54";
-            testRotation(cube, expected, () => cube.ls());
+            testRotation(cube, expected, () => cube.Rotate_leftslice_clockwise());
         }
 
         [TestMethod, TestCategory("Cube"), Owner("Paul Baxter"), Priority(3)]
@@ -971,7 +971,7 @@ namespace WpfApplication1.Tests
             var cube = new Cube();
             const string expected =
                 "1 20 3 4 23 6 7 26 9 10 11 12 13 14 15 16 17 18 19 47 21 22 50 24 25 53 27 28 29 30 31 32 33 34 35 36 37 8 39 40 5 42 43 2 45 46 44 48 49 41 51 52 38 54";
-            testRotation(cube, expected, () => cube.rs());
+            testRotation(cube, expected, () => cube.Rotate_rightslice_clockwise());
         }
 
         [TestMethod, TestCategory("Cube"), Owner("Paul Baxter"), Priority(3)]
@@ -980,7 +980,7 @@ namespace WpfApplication1.Tests
             var cube = new Cube();
             const string expected =
                 "1 2 3 17 14 11 7 8 9 10 49 12 13 50 15 16 51 18 19 20 21 22 23 24 25 26 27 28 4 30 31 5 33 34 6 36 37 38 39 40 41 42 43 44 45 46 47 48 35 32 29 52 53 54";
-            testRotation(cube, expected, () => cube.fs());
+            testRotation(cube, expected, () => cube.Rotate_frontslice_clockwise());
         }
 
         [TestMethod, TestCategory("Cube"), Owner("Paul Baxter"), Priority(3)]
@@ -989,7 +989,7 @@ namespace WpfApplication1.Tests
             var cube = new Cube();
             const string expected =
                 "1 2 3 29 32 35 7 8 9 10 6 12 13 5 15 16 4 18 19 20 21 22 23 24 25 26 27 28 51 30 31 50 33 34 49 36 37 38 39 40 41 42 43 44 45 46 47 48 11 14 17 52 53 54";
-            testRotation(cube, expected, () => cube.bs());
+            testRotation(cube, expected, () => cube.Rotate_backslice_clockwise());
         }
 
         [TestMethod, TestCategory("Cube"), Owner("Paul Baxter"), Priority(3)]
@@ -998,7 +998,7 @@ namespace WpfApplication1.Tests
             var cube = new Cube();
             const string expected =
                 "19 20 21 22 23 24 25 26 27 12 15 18 11 14 17 10 13 16 46 47 48 49 50 51 52 53 54  34 31 28 35 32 29 36 33 30 9 8 7 6 5 4 3 2 1 45 44 43 42 41 40 39 38 37";
-            testRotation(cube, expected, () => cube.cu());
+            testRotation(cube, expected, () => cube.Rotate_cube_up());
         }
 
         [TestMethod, TestCategory("Cube"), Owner("Paul Baxter"), Priority(3)]
@@ -1007,7 +1007,7 @@ namespace WpfApplication1.Tests
             var cube = new Cube();
             const string expected =
                 "45 44 43 42 41 40 39 38 37 16 13 10 17 14 11 18 15 12 1 2 3 4 5 6 7 8 9 30 33 36 29 32 35 28 31 34 54 53 52 51 50 49 48 47 46 19 20 21 22 23 24 25 26 27";
-            testRotation(cube, expected, () => cube.cd());
+            testRotation(cube, expected, () => cube.Rotate_cube_down());
         }
 
         [TestMethod, TestCategory("Cube"), Owner("Paul Baxter"), Priority(3)]
@@ -1016,7 +1016,7 @@ namespace WpfApplication1.Tests
             var cube = new Cube();
             const string expected =
                 "7 4 1 8 5 2 9 6 3 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 10 11 12 13 14 15 16 17 18 48 51 54 47 50 53 46 49 52";
-            testRotation(cube, expected, () => cube.cl());
+            testRotation(cube, expected, () => cube.Rotate_cube_left());
         }
 
         [TestMethod, TestCategory("Cube"), Owner("Paul Baxter"), Priority(3)]
@@ -1025,7 +1025,7 @@ namespace WpfApplication1.Tests
             var cube = new Cube();
             const string expected =
                 "3 6 9 2 5 8 1 4 7 37 38 39 40 41 42 43 44 45 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 52 49 46 53 50 47 54 51 48";
-            testRotation(cube, expected, () => cube.cr());
+            testRotation(cube, expected, () => cube.Rotate_cube_right());
         }
 
         [TestMethod, TestCategory("Cube"), Owner("Paul Baxter"), Priority(3)]
@@ -1033,12 +1033,12 @@ namespace WpfApplication1.Tests
         {
             var cube = new Cube();
             const string sequence = "u l f r d b ui li bi fi ri di ri ls fs us bs ds rs cu cl cd cr";
-            cube.execute_sequence(sequence);
-            Assert.IsFalse(cube.issolved(), "reverse_sequenceTest FAILED");
+            cube.Execute_sequence(sequence);
+            Assert.IsFalse(cube.Issolved(), "reverse_sequenceTest FAILED");
 
-            var reverse = cube.reverse_sequence(sequence);
-            cube.execute_sequence(reverse);
-            Assert.IsTrue(cube.issolved(), "reverse_sequenceTest FAILED");
+            var reverse = cube.Reverse_sequence(sequence);
+            cube.Execute_sequence(reverse);
+            Assert.IsTrue(cube.Issolved(), "reverse_sequenceTest FAILED");
         }
 
         [TestMethod, TestCategory("Cube"), Owner("Paul Baxter"), Priority(3)]
@@ -1048,7 +1048,7 @@ namespace WpfApplication1.Tests
             const string sequence = "F F D D R R L L U D";
             const string expected =
                 "7 51 54 47 5 2 9 49 52 19 26 21 31 14 13 25 20 27 28 17 16 42 23 40 34 11 10 45 38 43 33 32 15 39 44 37 36 35 12 22 41 24 30 29 18 48 4 1 8 50 53 46 6 3";
-            testRotation(cube, expected, () => cube.execute_sequence(sequence));
+            testRotation(cube, expected, () => cube.Execute_sequence(sequence));
             var s = cube.Moves;
             var result = string.Compare(sequence, s, StringComparison.CurrentCultureIgnoreCase) == 0;
             Assert.IsTrue(result, "execute_sequenceTest FAIL");
@@ -1058,9 +1058,9 @@ namespace WpfApplication1.Tests
         public void scramble_cubeTest()
         {
             var cube = new Cube();
-            Assert.IsTrue(cube.issolved(), "scramble_cubeTest FAIL");
-            cube.scramble_cube();
-            Assert.IsFalse(cube.issolved(), "scramble_cubeTest FAIL");
+            Assert.IsTrue(cube.Issolved(), "scramble_cubeTest FAIL");
+            cube.Scramble_cube();
+            Assert.IsFalse(cube.Issolved(), "scramble_cubeTest FAIL");
             var seq = cube.ScrambleSequence;
             Assert.IsTrue(seq.Length > 0, "scramble_cubeTest FAIL");
         }
@@ -1070,14 +1070,14 @@ namespace WpfApplication1.Tests
         {
             var cube = new Cube();
             const string sequence = "l l l r l r r";
-            var optsequence = cube.optimize_sequence(sequence);
+            var optsequence = cube.Optimize_sequence(sequence);
             Assert.IsTrue(sequence.Length >= optsequence.Length, "scramble_cubeTest FAIL");
 
-            cube.execute_sequence(sequence);
+            cube.Execute_sequence(sequence);
             var str = cube.ToString();
-            cube.init_cube();
+            cube.Init_cube();
 
-            cube.execute_sequence(optsequence);
+            cube.Execute_sequence(optsequence);
             var result = string.Compare(str, cube.ToString(), StringComparison.CurrentCultureIgnoreCase) == 0;
             Assert.IsTrue(result, "scramble_cubeTest FAIL");
         }
@@ -1088,23 +1088,23 @@ namespace WpfApplication1.Tests
             var cube = new Cube();
 
             var c = cube.Left.Color;
-            cube.set_up_face(c);
+            cube.Set_up_face(c);
             Assert.IsTrue(c == cube.Up.Color, "set_up_faceTest FAIL");
 
             c = cube.Front.Color;
-            cube.set_up_face(c);
+            cube.Set_up_face(c);
             Assert.IsTrue(c == cube.Up.Color, "set_up_faceTest FAIL");
 
             c = cube.Right.Color;
-            cube.set_up_face(c);
+            cube.Set_up_face(c);
             Assert.IsTrue(c == cube.Up.Color, "set_up_faceTest FAIL");
 
             c = cube.Back.Color;
-            cube.set_up_face(c);
+            cube.Set_up_face(c);
             Assert.IsTrue(c == cube.Up.Color, "set_up_faceTest FAIL");
 
             c = cube.Down.Color;
-            cube.set_up_face(c);
+            cube.Set_up_face(c);
             Assert.IsTrue(c == cube.Up.Color, "set_up_faceTest FAIL");
         }
 
@@ -1114,23 +1114,23 @@ namespace WpfApplication1.Tests
             var cube = new Cube();
 
             var c = cube.Up.Color;
-            cube.set_front_face(c);
+            cube.Set_front_face(c);
             Assert.IsTrue(c == cube.Front.Color, "set_front_faceTest FAIL");
 
             c = cube.Left.Color;
-            cube.set_front_face(c);
+            cube.Set_front_face(c);
             Assert.IsTrue(c == cube.Front.Color, "set_front_faceTest FAIL");
 
             c = cube.Right.Color;
-            cube.set_front_face(c);
+            cube.Set_front_face(c);
             Assert.IsTrue(c == cube.Front.Color, "set_up_faceTest FAIL");
 
             c = cube.Back.Color;
-            cube.set_front_face(c);
+            cube.Set_front_face(c);
             Assert.IsTrue(c == cube.Front.Color, "set_up_faceTest FAIL");
 
             c = cube.Down.Color;
-            cube.set_front_face(c);
+            cube.Set_front_face(c);
             Assert.IsTrue(c == cube.Front.Color, "set_up_faceTest FAIL");
         }
 

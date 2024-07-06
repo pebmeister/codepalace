@@ -16,8 +16,7 @@ namespace WpfApplication1
         {
             if (!CommandDict.ContainsKey(command)) return false;
 
-            bool executing;
-            CommandDict.TryGetValue(command, out executing);
+            CommandDict.TryGetValue(command, out var executing);
             return executing;
         }
 

@@ -82,7 +82,7 @@ namespace WpfApplication1
             get
             {
                 var temp = _solved;
-                _solved = Rc.issolved();
+                _solved = Rc.Issolved();
                 if (temp != _solved)
                     OnPropertyChanged();
                 return _solved;
@@ -740,9 +740,9 @@ namespace WpfApplication1
             Dispatcher?.BeginInvoke(new Action(() =>
             {
                     Scrambling = true;
-                    var tempCube = Rc.clone();
+                    var tempCube = Rc.Clone();
 
-                    tempCube.scramble_cube();
+                    tempCube.Scramble_cube();
                     var scrambleBuffer = tempCube.ScrambleSequence;
                     ExecuteSequence(scrambleBuffer);
             }));
@@ -765,7 +765,7 @@ namespace WpfApplication1
             // IMPORTANT
             // make a copy of the cube before solving it
             //
-            var tempCube = Rc.clone();
+            var tempCube = Rc.Clone();
             ISolver solver = new SimpleSolver(tempCube);
             try
             {
@@ -1456,7 +1456,7 @@ namespace WpfApplication1
                         // adjust speed
                         if (Scrambling)
                         {
-                            AnimationDuration = TimeSpan.FromMilliseconds(1);
+                            AnimationDuration = TimeSpan.FromMilliseconds(0);
                         }
                         else if (AnimationDuration.TotalMilliseconds > FastSpeed && MoveQueue.Count > 5)
                         {
@@ -1489,91 +1489,91 @@ namespace WpfApplication1
                         switch (element.ToLower())
                         {
                             case "cu":
-                                Rotate(1, 0, 0, AllCubeieIndices, -90,  Rc.cu);
+                                Rotate(1, 0, 0, AllCubeieIndices, -90,  Rc.Rotate_cube_up);
                                 break;
 
                             case "cd":
-                                Rotate(1, 0, 0, AllCubeieIndices, 90, Rc.cd);
+                                Rotate(1, 0, 0, AllCubeieIndices, 90, Rc.Rotate_cube_down);
                                 break;
 
                             case "cr":
-                                Rotate(0, 1, 0, AllCubeieIndices, 90, Rc.cr);
+                                Rotate(0, 1, 0, AllCubeieIndices, 90, Rc.Rotate_cube_right);
                                 break;
 
                             case "cl":
-                                Rotate(0, 1, 0, AllCubeieIndices, -90, Rc.cl);
+                                Rotate(0, 1, 0, AllCubeieIndices, -90, Rc.Rotate_cube_left);
                                 break;
 
                             case "f":
-                                Rotate(0, 0, 1, FrontCubieIndices, -90, Rc.f);
+                                Rotate(0, 0, 1, FrontCubieIndices, -90, Rc.Rotate_front_clockwise);
                                 break;
 
                             case "fi":
-                                Rotate(0, 0, 1, FrontCubieIndices, 90, Rc.fi);
+                                Rotate(0, 0, 1, FrontCubieIndices, 90, Rc.Rotate_front_counterclockwise);
                                 break;
 
                             case "b":
-                                Rotate(0, 0, 1, BackCubieIndices, 90, Rc.b);
+                                Rotate(0, 0, 1, BackCubieIndices, 90, Rc.Rotate_back_clockwise);
                                 break;
 
                             case "bi":
-                                Rotate(0, 0, 1, BackCubieIndices, -90, Rc.bi);
+                                Rotate(0, 0, 1, BackCubieIndices, -90, Rc.Rotate_back_counterclockwise);
                                 break;
 
                             case "l":
-                                Rotate(1, 0, 0, LeftCubieIndices, 90, Rc.l);
+                                Rotate(1, 0, 0, LeftCubieIndices, 90, Rc.Rotate_left_clockwise);
                                 break;
 
                             case "li":
-                                Rotate(1, 0, 0, LeftCubieIndices, -90, Rc.li);
+                                Rotate(1, 0, 0, LeftCubieIndices, -90, Rc.Rotate_left_counterclockwise);
                                 break;
 
                             case "u":
-                                Rotate(0, 1, 0, UpCubieIndices, -90, Rc.u);
+                                Rotate(0, 1, 0, UpCubieIndices, -90, Rc.Rotate_up_clockwise);
                                 break;
 
                             case "ui":
-                                Rotate(0, 1, 0, UpCubieIndices, 90, Rc.ui);
+                                Rotate(0, 1, 0, UpCubieIndices, 90, Rc.Rotate_up_counterclockwise);
                                 break;
 
                             case "r":
-                                Rotate(1, 0, 0, RightCubieIndices, -90, Rc.r);
+                                Rotate(1, 0, 0, RightCubieIndices, -90, Rc.Rotate_right_clockwise);
                                 break;
 
                             case "ri":
-                                Rotate(1, 0, 0, RightCubieIndices, 90, Rc.ri);
+                                Rotate(1, 0, 0, RightCubieIndices, 90, Rc.Rotate_right_counterclockwise);
                                 break;
 
                             case "d":
-                                Rotate(0, 1, 0, DownCubieIndices, 90, Rc.d);
+                                Rotate(0, 1, 0, DownCubieIndices, 90, Rc.Rotate_down_clockwise);
                                 break;
 
                             case "di":
-                                Rotate(0, 1, 0, DownCubieIndices, -90, Rc.di);
+                                Rotate(0, 1, 0, DownCubieIndices, -90, Rc.Rotate_down_counterclockwise);
                                 break;
 
                             case "us":
-                                Rotate(0, 1, 0, UpDownSliceCubieIndices, -90, Rc.us);
+                                Rotate(0, 1, 0, UpDownSliceCubieIndices, -90, Rc.Rotate_upslice_clockwise);
                                 break;
 
                             case "ds":
-                                Rotate(0, 1, 0, UpDownSliceCubieIndices, 90, Rc.ds);
+                                Rotate(0, 1, 0, UpDownSliceCubieIndices, 90, Rc.Rotate_downslice_clockwise);
                                 break;
 
                             case "ls":
-                                Rotate(1, 0, 0, LeftRightSliceCubieIndices, 90, Rc.ls);
+                                Rotate(1, 0, 0, LeftRightSliceCubieIndices, 90, Rc.Rotate_leftslice_clockwise);
                                 break;
 
                             case "rs":
-                                Rotate(1, 0, 0, LeftRightSliceCubieIndices, -90, Rc.rs);
+                                Rotate(1, 0, 0, LeftRightSliceCubieIndices, -90, Rc.Rotate_rightslice_clockwise);
                                 break;
 
                             case "fs":
-                                Rotate(0, 0, 1, FrontBackSliceCubieIndices, -90, Rc.fs);
+                                Rotate(0, 0, 1, FrontBackSliceCubieIndices, -90, Rc.Rotate_frontslice_clockwise);
                                 break;
 
                             case "bs":
-                                Rotate(0, 0, 1, FrontBackSliceCubieIndices, 90, Rc.bs);
+                                Rotate(0, 0, 1, FrontBackSliceCubieIndices, 90, Rc.Rotate_backslice_clockwise);
                                 break;
 
                             default:
@@ -1667,7 +1667,7 @@ namespace WpfApplication1
         /// <param name="buffer"></param>
         public void SetCube(string buffer)
         {
-            Rc.set_cube(buffer);
+            Rc.Set_cube(buffer);
             Dispatcher?.BeginInvoke(new Action(UpdateCubeColors));
         }
 

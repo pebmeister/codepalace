@@ -266,7 +266,7 @@ namespace WpfApplication1
             var face = face_val_to_index(color);
 
             var sequence = TopEdgeMoves[(int) foundEdgePosition][face];
-            Cube.execute_sequence(sequence);
+            Cube.Execute_sequence(sequence);
         }
 
         /// <summary>
@@ -287,95 +287,95 @@ namespace WpfApplication1
                     break;
 
                 case CornerName.CornerUlf231:
-                    Cube.execute_sequence("l di li d l di li");
+                    Cube.Execute_sequence("l di li d l di li");
                     break;
 
                 case CornerName.CornerUlf312:
-                    Cube.execute_sequence("fi d f di fi d f");
+                    Cube.Execute_sequence("fi d f di fi d f");
                     break;
 
                 case CornerName.CornerUlb132:
-                    Cube.execute_sequence("b d bi d l di li");
+                    Cube.Execute_sequence("b d bi d l di li");
                     break;
 
                 case CornerName.CornerUlb213:
-                    Cube.execute_sequence("b di bi d d l di li");
+                    Cube.Execute_sequence("b di bi d d l di li");
                     break;
 
                 case CornerName.CornerUlb321:
-                    Cube.execute_sequence("b fi d bi f");
+                    Cube.Execute_sequence("b fi d bi f");
                     break;
 
                 case CornerName.CornerUrf132:
-                    Cube.execute_sequence("ri d d r fi d f");
+                    Cube.Execute_sequence("ri d d r fi d f");
                     break;
 
                 case CornerName.CornerUrf213:
-                    Cube.execute_sequence("ri l di r li");
+                    Cube.Execute_sequence("ri l di r li");
                     break;
 
                 case CornerName.CornerUrf321:
-                    Cube.execute_sequence("f d d f f d f");
+                    Cube.Execute_sequence("f d d f f d f");
                     break;
 
                 case CornerName.CornerUrb123:
-                    Cube.execute_sequence("bi fi d d f b");
+                    Cube.Execute_sequence("bi fi d d f b");
                     break;
 
                 case CornerName.CornerUrb231:
-                    Cube.execute_sequence("bi di l di li b");
+                    Cube.Execute_sequence("bi di l di li b");
                     break;
 
                 case CornerName.CornerUrb312:
-                    Cube.execute_sequence("r d d ri di fi d f");
+                    Cube.Execute_sequence("r d d ri di fi d f");
                     break;
 
                 case CornerName.CornerDlf132:
-                    Cube.execute_sequence("di fi d d f di fi d f");
+                    Cube.Execute_sequence("di fi d d f di fi d f");
                     break;
 
                 case CornerName.CornerDlf213:
-                    Cube.execute_sequence("di fi d f");
+                    Cube.Execute_sequence("di fi d f");
                     break;
 
                 case CornerName.CornerDlf321:
-                    Cube.execute_sequence("d l di li");
+                    Cube.Execute_sequence("d l di li");
                     break;
 
                 case CornerName.CornerDlb123:
-                    Cube.execute_sequence("fi d d f di fi d f");
+                    Cube.Execute_sequence("fi d d f di fi d f");
                     break;
 
                 case CornerName.CornerDlb231:
-                    Cube.execute_sequence("fi d f");
+                    Cube.Execute_sequence("fi d f");
                     break;
 
                 case CornerName.CornerDlb312:
-                    Cube.execute_sequence("d d l di li");
+                    Cube.Execute_sequence("d d l di li");
                     break;
 
                 case CornerName.CornerDrf123:
-                    Cube.execute_sequence("l d d li d l di li");
+                    Cube.Execute_sequence("l d d li d l di li");
                     break;
 
                 case CornerName.CornerDrf231:
-                    Cube.execute_sequence("d d fi d f");
+                    Cube.Execute_sequence("d d fi d f");
                     break;
 
                 case CornerName.CornerDrf312:
-                    Cube.execute_sequence("l di li");
+                    Cube.Execute_sequence("l di li");
                     break;
 
                 case CornerName.CornerDrb132:
-                    Cube.execute_sequence("l d li d l di li");
+                    Cube.Execute_sequence("l d li d l di li");
                     break;
 
                 case CornerName.CornerDrb213:
-                    Cube.execute_sequence("fi d d f");
+                    Cube.Execute_sequence("fi d d f");
                     break;
 
                 case CornerName.CornerDrb321:
-                    Cube.execute_sequence("l d d li");
+                    Cube.Execute_sequence("l d d li");
                     break;
             }
         }
@@ -391,11 +391,11 @@ namespace WpfApplication1
             switch (pos)
             {
                 case FaceName.MiddleFaceLeft:
-                    Cube.execute_sequence("l di li di fi d f d ri d r d f di fi");
+                    Cube.Execute_sequence("l di li di fi d f d ri d r d f di fi");
                     break;
 
                 case FaceName.MiddleFaceLeftReverse:
-                    Cube.execute_sequence("l di li di fi d f f di fi di ri d r");
+                    Cube.Execute_sequence("l di li di fi d f f di fi di ri d r");
                     break;
 
                 default:
@@ -404,55 +404,55 @@ namespace WpfApplication1
                     break;
 
                 case FaceName.MiddleFaceFrontReverse:
-                    Cube.execute_sequence("ri d r d f di fi d ri d r d f di fi");
+                    Cube.Execute_sequence("ri d r d f di fi d ri d r d f di fi");
                     break;
 
                 case FaceName.MiddleFaceRight:
-                    Cube.execute_sequence("bi d b d r di ri di f di fi di ri d r");
+                    Cube.Execute_sequence("bi d b d r di ri di f di fi di ri d r");
                     break;
 
                 case FaceName.MiddleFaceRightReverse:
-                    Cube.execute_sequence("bi d b d r di ri ri d r d f di fi");
+                    Cube.Execute_sequence("bi d b d r di ri ri d r d f di fi");
                     break;
 
                 case FaceName.MiddleFaceBack:
-                    Cube.execute_sequence("b di bi di li d l d d ri d r d f di fi");
+                    Cube.Execute_sequence("b di bi di li d l d d ri d r d f di fi");
                     break;
 
                 case FaceName.MiddleFaceBackReverse:
-                    Cube.execute_sequence("b di bi di li d l d f di fi di ri d r");
+                    Cube.Execute_sequence("b di bi di li d l d f di fi di ri d r");
                     break;
 
                 case FaceName.BottomFaceUp:
-                    Cube.execute_sequence("d d f di fi di ri d r");
+                    Cube.Execute_sequence("d d f di fi di ri d r");
                     break;
 
                 case FaceName.BottomFaceUpReverse:
-                    Cube.execute_sequence("di ri d r d f di fi");
+                    Cube.Execute_sequence("di ri d r d f di fi");
                     break;
 
                 case FaceName.BottomFaceLeft:
-                    Cube.execute_sequence("di f di fi di ri d r");
+                    Cube.Execute_sequence("di f di fi di ri d r");
                     break;
 
                 case FaceName.BottomFaceLeftReverse:
-                    Cube.execute_sequence("ri d r d f di fi");
+                    Cube.Execute_sequence("ri d r d f di fi");
                     break;
 
                 case FaceName.BottomFaceDown:
-                    Cube.execute_sequence("f di fi di ri d r");
+                    Cube.Execute_sequence("f di fi di ri d r");
                     break;
 
                 case FaceName.BottomFaceDownReverse:
-                    Cube.execute_sequence("d ri d r d f di fi");
+                    Cube.Execute_sequence("d ri d r d f di fi");
                     break;
 
                 case FaceName.BottomFaceRight:
-                    Cube.execute_sequence("d f di fi di ri d r");
+                    Cube.Execute_sequence("d f di fi di ri d r");
                     break;
 
                 case FaceName.BottomFaceRightReverse:
-                    Cube.execute_sequence("d d ri d r d f di fi");
+                    Cube.Execute_sequence("d d ri d r d f di fi");
                     break;
             }
         }
@@ -610,13 +610,13 @@ namespace WpfApplication1
                     var rotateCount = 0;
 
                     while (rotateCount++ < NumCubeSides && Cube.Back[0, 1] != Cube.Back.Color)
-                        Cube.execute_sequence("cr");
+                        Cube.Execute_sequence("cr");
 
                     if (Cube.Left[0, 1] == Cube.Front.Color)
                         clockwise = false;
                 }
 
-                Cube.execute_sequence(clockwise ? "f f u l ri f f li r u f f" : "f f ui l ri f f li r ui f f");
+                Cube.Execute_sequence(clockwise ? "f f u l ri f f li r u f f" : "f f ui l ri f f li r ui f f");
             } while (count++ < NumCubeSides);
 
             // Should NEVER get here
@@ -658,7 +658,7 @@ namespace WpfApplication1
                         return true;
 
                     if (correctCount < 2)
-                        Cube.execute_sequence("u");
+                        Cube.Execute_sequence("u");
                     else
                         break;
 
@@ -684,11 +684,11 @@ namespace WpfApplication1
                         )
                         break;
 
-                    Cube.execute_sequence("cr");
+                    Cube.Execute_sequence("cr");
 
                 } while (rotateCount++ <= NumCubeSides);
 
-                Cube.execute_sequence("ri f ri b b r fi ri b b r r ui");
+                Cube.Execute_sequence("ri f ri b b r fi ri b b r r ui");
             } while (count++ < NumCubeSides);
 
             throw new Exception("Cube can't be solved.");
@@ -713,7 +713,7 @@ namespace WpfApplication1
                         // rotate until the top right of the right side is the same color as the side color
                         rotateCount = 0;
                         while (rotateCount++ < NumCubeSides && !Cube.Left.IsCorrect(0, 2))
-                            Cube.execute_sequence("cr");
+                            Cube.Execute_sequence("cr");
                         break;
 
                     case CornerState.CornerStateTwo:
@@ -723,21 +723,21 @@ namespace WpfApplication1
                         // X | X |
                         rotateCount = 0;
                         while (rotateCount++ < NumCubeSides && !side.IsCorrect(2, 0))
-                            Cube.execute_sequence("cr");
+                            Cube.Execute_sequence("cr");
                         break;
 
                     case CornerState.CornerStateThree:
                         // rotate until the left top of the front side is the same color as the side color
                         rotateCount = 0;
                         while (rotateCount++ < NumCubeSides && Cube.Front[0, 0] != side.Color)
-                            Cube.execute_sequence("cr");
+                            Cube.Execute_sequence("cr");
                         break;
 
                     case CornerState.CornerStateFour:
                         return;
                 }
 
-                Cube.execute_sequence("r u ri u r u u ri");
+                Cube.Execute_sequence("r u ri u r u u ri");
                 count++;
             } while (count <= NumCubeSides);
 
@@ -765,31 +765,31 @@ namespace WpfApplication1
                         return;
 
                     case CrossState.CrossStateTwo:
-                        Cube.execute_sequence("f u r ui ri fi");
+                        Cube.Execute_sequence("f u r ui ri fi");
                         break;
 
                     case CrossState.CrossStateThreeA:
-                        Cube.execute_sequence("f u r ui ri fi");
+                        Cube.Execute_sequence("f u r ui ri fi");
                         break;
 
                     case CrossState.CrossStateThreeB:
-                        Cube.execute_sequence("cl f u r ui ri fi");
+                        Cube.Execute_sequence("cl f u r ui ri fi");
                         break;
 
                     case CrossState.CrossStateThreeC:
-                        Cube.execute_sequence("cr cr f u r ui ri fi");
+                        Cube.Execute_sequence("cr cr f u r ui ri fi");
                         break;
 
                     case CrossState.CrossStateThreeD:
-                        Cube.execute_sequence("cr f u r ui ri fi");
+                        Cube.Execute_sequence("cr f u r ui ri fi");
                         break;
 
                     case CrossState.CrossStateFourA:
-                        Cube.execute_sequence("f r u ri ui fi");
+                        Cube.Execute_sequence("f r u ri ui fi");
                         break;
 
                     case CrossState.CrossStateFourB:
-                        Cube.execute_sequence("cr f r u ri ui fi");
+                        Cube.Execute_sequence("cr f r u ri ui fi");
                         break;
                 }
                 count++;
@@ -809,7 +809,7 @@ namespace WpfApplication1
             {
                 position_up_left_front_corner(Cube.Up.Color, Cube.Left.Color, Cube.Front.Color);
                 if (count < NumCubeSides - 1)
-                    Cube.execute_sequence("cr");
+                    Cube.Execute_sequence("cr");
             }
         }
 
@@ -822,7 +822,7 @@ namespace WpfApplication1
             {
                 position_middle_front_right_edge(Cube.Right.Color);
                 if (count < NumCubeSides - 1)
-                    Cube.execute_sequence("cr");
+                    Cube.Execute_sequence("cr");
             }
         }
 
@@ -837,7 +837,7 @@ namespace WpfApplication1
             var solution = "";
 
             solve_quick_solve_recursion(Cube, maxSolveLevel, 0, moves, ref solution);
-            Cube.execute_sequence(solution);
+            Cube.Execute_sequence(solution);
         }
 
         /// <summary>
@@ -852,7 +852,7 @@ namespace WpfApplication1
         private static bool solve_quick_solve_recursion(ICube cube, int maxLevel, int level, ICollection<string> moves,
             ref string solution)
         {
-            if (cube.issolved())
+            if (cube.Issolved())
                 return true;
 
             if (level++ >= maxLevel)
@@ -864,14 +864,14 @@ namespace WpfApplication1
             {
                 moves.Add(m1);
 
-                var clone = cube.clone();
-                clone.execute_sequence(m1);
+                var clone = cube.Clone();
+                clone.Execute_sequence(m1);
                 var result = solve_quick_solve_recursion(clone, maxLevel, level, moves, ref solution);
                 if (result)
                 {
                     temp = moves.Aggregate(temp, (current, m) => current + (m + " "));
 
-                    var buffer = clone.optimize_sequence(temp);
+                    var buffer = clone.Optimize_sequence(temp);
                     if (!string.IsNullOrEmpty(buffer))
                         solution = buffer;
 
@@ -904,14 +904,14 @@ namespace WpfApplication1
         public string solve()
         {
             solve_quick_solve();
-            if (Cube.issolved()) return Cube.OptimizedMoves;
+            if (Cube.Issolved()) return Cube.OptimizedMoves;
 
             solve_up_cross();
             solve_up_corners();
             solve_middle_layer();
  
             // flip the cube upside down
-            Cube.set_up_face(Cube.Down.Color);
+            Cube.Set_up_face(Cube.Down.Color);
 
             solve_cross(Cube.Up);
             solve_corner(Cube.Up);

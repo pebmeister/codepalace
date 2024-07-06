@@ -18,7 +18,7 @@ namespace WpfApplication1
 
         public string Moves => _moves.ToString().Trim();
 
-        public string OptimizedMoves => optimize_sequence(_moves.ToString());
+        public string OptimizedMoves => Optimize_sequence(_moves.ToString());
         public string ScrambleSequence => _scrambleSequence.ToString();
 
         /// <summary>
@@ -56,16 +56,16 @@ namespace WpfApplication1
         /// </summary>
         public Cube()
         {
-            init_cube();
+            Init_cube();
         }
 
         /// <summary>
         /// Initialize the cube to a solved state
         /// Clear moves and scamblesequence
         /// </summary>
-        public void init_cube()
+        public void Init_cube()
         {
-            set_cube("W W W W W W W W W " +
+            Set_cube("W W W W W W W W W " +
                      "G G G G G G G G G " +
                      "R R R R R R R R R " +
                      "B B B B B B B B B " +
@@ -100,7 +100,7 @@ namespace WpfApplication1
         /// Set the value of the cubies
         /// </summary>
         /// <param name="cubeValues">string containing cubie values</param>
-        public void set_cube(string cubeValues)
+        public void Set_cube(string cubeValues)
         {
             var vals = cubeValues.Split(Whitechars, StringSplitOptions.RemoveEmptyEntries);
 
@@ -136,7 +136,7 @@ namespace WpfApplication1
         /// Only copies values not record, moves or scramble
         /// </summary>
         /// <returns>Clone of cube</returns>
-        public Cube clone()
+        public Cube Clone()
         {
             var cloneCube = new Cube();
             for (var row = 0; row < CubeSize; row++)
@@ -157,7 +157,7 @@ namespace WpfApplication1
         /// Determine if the cube is solved
         /// </summary>
         /// <returns>True if the cube is solved</returns>
-        public bool issolved()
+        public bool Issolved()
         {
             return Up.Issolved() && Left.Issolved() &&
                    Front.Issolved() && Right.Issolved() &&
@@ -167,7 +167,7 @@ namespace WpfApplication1
         /// <summary>
         /// Rotate the front face clockwise
         /// </summary>
-        public void f()
+        public void Rotate_front_clockwise()
         {
             Front.rotate_clockwise();
             for (var index = 0; index < CubeSize; index++)
@@ -186,7 +186,7 @@ namespace WpfApplication1
         /// <summary>
         /// Rotate the front face counter clockwise
         /// </summary>
-        public void fi()
+        public void Rotate_front_counterclockwise()
         {
             Front.rotate_counter_clockwise();
             for (var index = 0; index < CubeSize; index++)
@@ -205,7 +205,7 @@ namespace WpfApplication1
         /// <summary>
         /// Rotate the up face clockwise
         /// </summary>
-        public void u()
+        public void Rotate_up_clockwise()
         {
             Up.rotate_clockwise();
             for (var index = 0; index < CubeSize; index++)
@@ -224,7 +224,7 @@ namespace WpfApplication1
         /// <summary>
         /// Rotate the up face counter clockwise
         /// </summary>
-        public void ui()
+        public void Rotate_up_counterclockwise()
         {
             Up.rotate_counter_clockwise();
             for (var index = 0; index < CubeSize; index++)
@@ -243,7 +243,7 @@ namespace WpfApplication1
         /// <summary>
         /// Rotate the back face clockwise
         /// </summary>
-        public void b()
+        public void Rotate_back_clockwise()
         {
             Back.rotate_clockwise();
             for (var index = 0; index < CubeSize; index++)
@@ -262,7 +262,7 @@ namespace WpfApplication1
         /// <summary>
         /// Rotate the back face counter clockwise
         /// </summary>
-        public void bi()
+        public void Rotate_back_counterclockwise()
         {
             Back.rotate_counter_clockwise();
             for (var index = 0; index < CubeSize; index++)
@@ -281,7 +281,7 @@ namespace WpfApplication1
         /// <summary>
         /// Rotate the left face clockwise
         /// </summary>
-        public void l()
+        public void Rotate_left_clockwise()
         {
             Left.rotate_clockwise();
             for (var index = 0; index < CubeSize; index++)
@@ -300,7 +300,7 @@ namespace WpfApplication1
         /// <summary>
         /// Rotate the left face counter clockwise
         /// </summary>
-        public void li()
+        public void Rotate_left_counterclockwise()
         {
             Left.rotate_counter_clockwise();
             for (var index = 0; index < CubeSize; index++)
@@ -319,7 +319,7 @@ namespace WpfApplication1
         /// <summary>
         /// Rotate the right face clockwise
         /// </summary>
-        public void r()
+        public void Rotate_right_clockwise()
         {
             Right.rotate_clockwise();
             for (var index = 0; index < CubeSize; index++)
@@ -338,7 +338,7 @@ namespace WpfApplication1
         /// <summary>
         /// Rotate the right face counter clockwise
         /// </summary>
-        public void ri()
+        public void Rotate_right_counterclockwise()
         {
             Right.rotate_counter_clockwise();
             for (var index = 0; index < CubeSize; index++)
@@ -357,7 +357,7 @@ namespace WpfApplication1
         /// <summary>
         /// Rotate the down face clockwise
         /// </summary>
-        public void d()
+        public void Rotate_down_clockwise()
         {
             Down.rotate_clockwise();
             for (var index = 0; index < CubeSize; index++)
@@ -376,7 +376,7 @@ namespace WpfApplication1
         /// <summary>
         /// Rotate the down face counter clockwise
         /// </summary>
-        public void di()
+        public void Rotate_down_counterclockwise()
         {
             Down.rotate_counter_clockwise();
             for (var index = 0; index < CubeSize; index++)
@@ -395,7 +395,7 @@ namespace WpfApplication1
         /// <summary>
         /// Rotate the up slice clockwise
         /// </summary>
-        public void us()
+        public void Rotate_upslice_clockwise()
         {
             for (var col = 0; col < CubeSize; col++)
             {
@@ -413,7 +413,7 @@ namespace WpfApplication1
         /// <summary>
         /// Rotate the down slice clockwise
         /// </summary>
-        public void ds()
+        public void Rotate_downslice_clockwise()
         {
             for (var col = 0; col < CubeSize; col++)
             {
@@ -431,7 +431,7 @@ namespace WpfApplication1
         /// <summary>
         /// Rotate the left slice clockwise
         /// </summary>
-        public void ls()
+        public void Rotate_leftslice_clockwise()
         {
             for (var row = 0; row < CubeSize; row++)
             {
@@ -449,7 +449,7 @@ namespace WpfApplication1
         /// <summary>
         /// Rotate the right slice clockwise
         /// </summary>
-        public void rs()
+        public void Rotate_rightslice_clockwise()
         {
             for (var row = 0; row < CubeSize; row++)
             {
@@ -467,7 +467,7 @@ namespace WpfApplication1
         /// <summary>
         /// Rotate the front slice clockwise
         /// </summary>
-        public void fs()
+        public void Rotate_frontslice_clockwise()
         {
             for (var index = 0; index < CubeSize; index++)
             {
@@ -485,7 +485,7 @@ namespace WpfApplication1
         /// <summary>
         /// Rotate the back slice clockwise
         /// </summary>
-        public void bs()
+        public void Rotate_backslice_clockwise()
         {
             for (var index = 0; index < CubeSize; index++)
             {
@@ -503,7 +503,7 @@ namespace WpfApplication1
         /// <summary>
         /// Rotate the cube up
         /// </summary>
-        public void cu()
+        public void Rotate_cube_up()
         {
             Left.rotate_counter_clockwise();
             Right.rotate_clockwise();
@@ -524,7 +524,7 @@ namespace WpfApplication1
         /// <summary>
         /// Rotate the cube down
         /// </summary>
-        public void cd()
+        public void Rotate_cube_down()
         {
             Left.rotate_clockwise();
             Right.rotate_counter_clockwise();
@@ -545,7 +545,7 @@ namespace WpfApplication1
         /// <summary>
         /// Rotate the cube left
         /// </summary>
-        public void cl()
+        public void Rotate_cube_left()
         {
             Down.rotate_counter_clockwise();
             Up.rotate_clockwise();
@@ -566,7 +566,7 @@ namespace WpfApplication1
         /// <summary>
         /// Rotate the cube right
         /// </summary>
-        public void cr()
+        public void Rotate_cube_right()
         {
             Down.rotate_clockwise();
             Up.rotate_counter_clockwise();
@@ -589,7 +589,7 @@ namespace WpfApplication1
         /// </summary>
         /// <param name="sequence">Sequence to reverse</param>
         /// <returns>Reversed sequence</returns>
-        public string reverse_sequence(string sequence)
+        public string Reverse_sequence(string sequence)
         {
             var buffer = new StringBuilder();
             var strs = sequence.Split(Whitechars, StringSplitOptions.RemoveEmptyEntries);
@@ -687,7 +687,7 @@ namespace WpfApplication1
                 }
             }
 
-            return optimize_sequence(buffer.ToString());
+            return Optimize_sequence(buffer.ToString());
         }
 
         /// <summary>
@@ -699,70 +699,70 @@ namespace WpfApplication1
             switch (move.ToLower())
             {
                 case "u":
-                    u();
+                    Rotate_up_clockwise();
                     break;
                 case "ui":
-                    ui();
+                    Rotate_up_counterclockwise();
                     break;
                 case "d":
-                    d();
+                    Rotate_down_clockwise();
                     break;
                 case "di":
-                    di();
+                    Rotate_down_counterclockwise();
                     break;
                 case "l":
-                    l();
+                    Rotate_left_clockwise();
                     break;
                 case "li":
-                    li();
+                    Rotate_left_counterclockwise();
                     break;
                 case "r":
-                    r();
+                    Rotate_right_clockwise();
                     break;
                 case "ri":
-                    ri();
+                    Rotate_right_counterclockwise();
                     break;
                 case "f":
-                    f();
+                    Rotate_front_clockwise();
                     break;
                 case "fi":
-                    fi();
+                    Rotate_front_counterclockwise();
                     break;
                 case "b":
-                    b();
+                    Rotate_back_clockwise();
                     break;
                 case "bi":
-                    bi();
+                    Rotate_back_counterclockwise();
                     break;
                 case "us":
-                    us();
+                    Rotate_upslice_clockwise();
                     break;
                 case "ds":
-                    ds();
+                    Rotate_downslice_clockwise();
                     break;
                 case "rs":
-                    rs();
+                    Rotate_rightslice_clockwise();
                     break;
                 case "ls":
-                    ls();
+                    Rotate_leftslice_clockwise();
                     break;
                 case "fs":
-                    fs();
+                    Rotate_frontslice_clockwise();
                     break;
                 case "bs":
-                    bs();
+                    Rotate_backslice_clockwise();
                     break;
                 case "cu":
-                    cu();
+                    Rotate_cube_up();
                     break;
                 case "cd":
-                    cd();
+                    Rotate_cube_down();
                     break;
                 case "cl":
-                    cl();
+                    Rotate_cube_left();
                     break;
                 case "cr":
-                    cr();
+                    Rotate_cube_right();
                     break;
             }
         }
@@ -771,7 +771,7 @@ namespace WpfApplication1
         /// Execeute a sequence
         /// </summary>
         /// <param name="sequence">Sequence to execute</param>
-        public void execute_sequence(string sequence)
+        public void Execute_sequence(string sequence)
         {
             if (string.IsNullOrEmpty(sequence)) return;
 
@@ -785,7 +785,7 @@ namespace WpfApplication1
         /// Put the sequence in _scrambleSequence
         /// </summary>
         /// <param name="scramblecount">Number of moves to generate</param>
-        public void scramble_cube(int scramblecount = 200)
+        public void Scramble_cube(int scramblecount = 200)
         {
             var temp = _record;
             _record = false;
@@ -805,8 +805,8 @@ namespace WpfApplication1
             }
 
             _scrambleSequence.Clear();
-            _scrambleSequence.Append(optimize_sequence(sequence.ToString()));
-            execute_sequence(_scrambleSequence.ToString());
+            _scrambleSequence.Append(Optimize_sequence(sequence.ToString()));
+            Execute_sequence(_scrambleSequence.ToString());
             _record = temp;
         }
 
@@ -815,7 +815,7 @@ namespace WpfApplication1
         /// </summary>
         /// <param name="sequence">Sequence to optimize</param>
         /// <returns>Optimize a sequence</returns>
-        public string optimize_sequence(string sequence)
+        public string Optimize_sequence(string sequence)
         {
             string outstr;
             var temp = sequence;
@@ -1077,26 +1077,26 @@ namespace WpfApplication1
         /// Positions the cube so the given color is the up face
         /// </summary>
         /// <param name="color">Color of top face</param>
-        public void set_up_face(FaceVal color)
+        public void Set_up_face(FaceVal color)
         {
             if (Front.Color == color)
-                cu();
+                Rotate_cube_up();
             else if (Left.Color == color)
             {
-                cr();
-                cu();
+                Rotate_cube_right();
+                Rotate_cube_up();
             }
             else if (Right.Color == color)
             {
-                cl();
-                cu();
+                Rotate_cube_left();
+                Rotate_cube_up();
             }
             else if (Back.Color == color)
-                cd();
+                Rotate_cube_down();
             else if (Down.Color == color)
             {
-                cd();
-                cd();
+                Rotate_cube_down();
+                Rotate_cube_down();
             }
         }
 
@@ -1104,21 +1104,21 @@ namespace WpfApplication1
         /// Positions the cube so the given color is the front face
         /// </summary>
         /// <param name="color">Color of front face</param>
-        public void set_front_face(FaceVal color)
+        public void Set_front_face(FaceVal color)
         {
             if (Up.Color == color)
-                cd();
+                Rotate_cube_down();
             else if (Left.Color == color)
-                cr();
+                Rotate_cube_right();
             else if (Right.Color == color)
-                cl();
+                Rotate_cube_left();
             else if (Back.Color == color)
             {
-                cl();
-                cl();
+                Rotate_cube_left();
+                Rotate_cube_left();
             }
             else if (Down.Color == color)
-                cu();
+                Rotate_cube_up();
         }
 
         /// <summary>
