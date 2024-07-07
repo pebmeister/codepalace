@@ -290,8 +290,7 @@ namespace WpfApplication1
                 return;
             }
 
-            bool pause;
-            if (e.Parameter == null || !bool.TryParse(e.Parameter.ToString(), out pause))
+            if (e.Parameter == null || !bool.TryParse(e.Parameter.ToString(), out var pause))
                 pause = false;
 
             if (pause &&
@@ -312,8 +311,7 @@ namespace WpfApplication1
             e.Command.SetIsRunning(true);
             await Task.Run(() =>
             {
-                bool pause;
-                if (e.Parameter == null || !bool.TryParse(e.Parameter.ToString(), out pause))
+                if (e.Parameter == null || !bool.TryParse(e.Parameter.ToString(), out var pause))
                     pause = false;
 
                 Cube.Pause(pause);

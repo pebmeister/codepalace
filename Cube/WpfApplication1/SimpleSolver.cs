@@ -240,7 +240,7 @@ namespace WpfApplication1
         /// </summary>
         /// <param name="face">Color of face</param>
         /// <returns>Face index</returns>
-        private int face_val_to_index(FaceVal face)
+        private int Face_val_to_index(FaceVal face)
         {
             if (face == Cube.Back.Color)
                 return (int) FaceSide.BackFace;
@@ -256,14 +256,14 @@ namespace WpfApplication1
         /// Positions the up edge so it is the given color
         /// </summary>
         /// <param name="color">Color of Edge</param>
-        private void position_up_edge(FaceVal color)
+        private void Position_up_edge(FaceVal color)
         {
             var upColor = Cube.Up.Color;
-            var foundEdgePosition = search_edge(upColor, color);
+            var foundEdgePosition = Search_edge(upColor, color);
             if (foundEdgePosition == FaceName.FaceNone)
                 return;  //  should NEVER happen
 
-            var face = face_val_to_index(color);
+            var face = Face_val_to_index(color);
 
             var sequence = TopEdgeMoves[(int) foundEdgePosition][face];
             Cube.Execute_sequence(sequence);
@@ -275,9 +275,9 @@ namespace WpfApplication1
         /// <param name="color1">First color of corner</param>
         /// <param name="color2">Second color of corner</param>
         /// <param name="color3">Third color of corner</param>
-        private void position_up_left_front_corner(FaceVal color1, FaceVal color2, FaceVal color3)
+        private void Position_up_left_front_corner(FaceVal color1, FaceVal color2, FaceVal color3)
         {
-            var pos = search_corner(color1, color2, color3);
+            var pos = Search_corner(color1, color2, color3);
             // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
             switch (pos)
             {
@@ -384,9 +384,9 @@ namespace WpfApplication1
         /// Position the middle front right edge of the cube
         /// </summary>
         /// <param name="side">Color of face. Should always be right face color</param>
-        private void position_middle_front_right_edge(FaceVal side)
+        private void Position_middle_front_right_edge(FaceVal side)
         {
-            var pos = search_edge(Cube.Front.Color, side);
+            var pos = Search_edge(Cube.Front.Color, side);
             // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
             switch (pos)
             {
@@ -464,7 +464,7 @@ namespace WpfApplication1
         /// </summary>
         /// <param name="side">Face to check</param>
         /// <returns>corner state</returns>
-        private static CornerState get_corner_state(Face side)
+        private static CornerState Get_corner_state(Face side)
         {
             var count = 0;
             if (side.IsCorrect(0, 0))
@@ -500,7 +500,7 @@ namespace WpfApplication1
         /// </summary>
         /// <param name="side"></param>
         /// <returns>patter of the side</returns>
-        private static string edge_pattern(Face side)
+        private static string Edge_pattern(Face side)
         {
             var s = side.ToString();
             var sb = new StringBuilder();
@@ -531,9 +531,9 @@ namespace WpfApplication1
         /// </summary>
         /// <param name="side">Face to count</param>
         /// <returns>State of the side</returns>
-        private static CrossState get_cross_state(Face side)
+        private static CrossState Get_cross_state(Face side)
         {
-            var sidepattern = edge_pattern(side);
+            var sidepattern = Edge_pattern(side);
             switch (sidepattern)
             {
                 default:
@@ -576,7 +576,7 @@ namespace WpfApplication1
         /// <summary>
         /// Solve the edges with correct position of the last layer
         /// </summary>
-        public void solve_position_edges()
+        public void Solve_position_edges()
         {
             var count = 0;
 
@@ -627,7 +627,7 @@ namespace WpfApplication1
         /// Solve the corners with correct position of the last layer
         /// </summary>
         // ReSharper disable once UnusedParameter.Local
-        public bool solve_position_corner()
+        public bool Solve_position_corner()
         {
             const uint a = 1u;
             const uint b = 1u << 1;
@@ -699,12 +699,12 @@ namespace WpfApplication1
         /// </summary>
         /// <param name="side">Color of layer to solve</param>
         /// <returns>True if positions are correct</returns>
-        public void solve_corner(Face side)
+        public void Solve_corner(Face side)
         {
             var count = 0;
             do
             {
-                var state = get_corner_state(side);
+                var state = Get_corner_state(side);
                 int rotateCount;
                 // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
                 switch (state)
@@ -749,12 +749,12 @@ namespace WpfApplication1
         /// Solve the cross of the last layer
         /// </summary>
         /// <param name="side"></param>
-        public void solve_cross(Face side)
+        public void Solve_cross(Face side)
         {
             var count = 0;
             do
             {
-                var state = get_cross_state(side);
+                var state = Get_cross_state(side);
                 // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
                 switch (state)
                 {
@@ -803,11 +803,11 @@ namespace WpfApplication1
         /// <summary>
         /// Solve the up corners of the cube
         /// </summary>
-        public void solve_up_corners()
+        public void Solve_up_corners()
         {
             for (var count = 0; count < NumCubeSides; count++)
             {
-                position_up_left_front_corner(Cube.Up.Color, Cube.Left.Color, Cube.Front.Color);
+                Position_up_left_front_corner(Cube.Up.Color, Cube.Left.Color, Cube.Front.Color);
                 if (count < NumCubeSides - 1)
                     Cube.Execute_sequence("cr");
             }
@@ -816,11 +816,11 @@ namespace WpfApplication1
         /// <summary>
         /// Solve the middle layer of the cube
         /// </summary>
-        public void solve_middle_layer()
+        public void Solve_middle_layer()
         {
             for (var count = 0; count < NumCubeSides; count++)
             {
-                position_middle_front_right_edge(Cube.Right.Color);
+                Position_middle_front_right_edge(Cube.Right.Color);
                 if (count < NumCubeSides - 1)
                     Cube.Execute_sequence("cr");
             }
@@ -829,14 +829,14 @@ namespace WpfApplication1
         /// <summary>
         /// See if the cube can be solved with only a few moves
         /// </summary>
-        public void solve_quick_solve()
+        public void Solve_quick_solve()
         {
             const int maxSolveLevel = 3;
 
             var moves = new List<string>();
             var solution = "";
 
-            solve_quick_solve_recursion(Cube, maxSolveLevel, 0, moves, ref solution);
+            Solve_quick_solve_recursion(Cube, maxSolveLevel, 0, moves, ref solution);
             Cube.Execute_sequence(solution);
         }
 
@@ -849,7 +849,7 @@ namespace WpfApplication1
         /// <param name="moves">Current moves</param>
         /// <param name="solution">Best solve sequence</param>
         /// <returns>True if solved</returns>
-        private static bool solve_quick_solve_recursion(ICube cube, int maxLevel, int level, ICollection<string> moves,
+        private static bool Solve_quick_solve_recursion(ICube cube, int maxLevel, int level, ICollection<string> moves,
             ref string solution)
         {
             if (cube.Issolved())
@@ -866,7 +866,7 @@ namespace WpfApplication1
 
                 var clone = cube.Clone();
                 clone.Execute_sequence(m1);
-                var result = solve_quick_solve_recursion(clone, maxLevel, level, moves, ref solution);
+                var result = Solve_quick_solve_recursion(clone, maxLevel, level, moves, ref solution);
                 if (result)
                 {
                     temp = moves.Aggregate(temp, (current, m) => current + (m + " "));
@@ -889,12 +889,12 @@ namespace WpfApplication1
         /// Solve the up cross
         /// </summary>
         /// <returns>True if the Cube is valid</returns>
-        public void solve_up_cross()
+        public void Solve_up_cross()
         {
-            position_up_edge(Cube.Left.Color);
-            position_up_edge(Cube.Front.Color);
-            position_up_edge(Cube.Right.Color);
-            position_up_edge(Cube.Back.Color);
+            Position_up_edge(Cube.Left.Color);
+            Position_up_edge(Cube.Front.Color);
+            Position_up_edge(Cube.Right.Color);
+            Position_up_edge(Cube.Back.Color);
         }
 
         /// <summary>
@@ -903,20 +903,20 @@ namespace WpfApplication1
         /// <returns>Solve sequence</returns>
         public string Solve()
         {
-            solve_quick_solve();
+            Solve_quick_solve();
             if (Cube.Issolved()) return Cube.OptimizedMoves;
 
-            solve_up_cross();
-            solve_up_corners();
-            solve_middle_layer();
+            Solve_up_cross();
+            Solve_up_corners();
+            Solve_middle_layer();
  
             // flip the cube upside down
             Cube.Set_up_face(Cube.Down.Color);
 
-            solve_cross(Cube.Up);
-            solve_corner(Cube.Up);
-            solve_position_corner();
-            solve_position_edges();
+            Solve_cross(Cube.Up);
+            Solve_corner(Cube.Up);
+            Solve_position_corner();
+            Solve_position_edges();
 
             return Cube.OptimizedMoves;
         }

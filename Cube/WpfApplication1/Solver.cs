@@ -136,7 +136,7 @@ namespace WpfApplication1
         /// <param name="faceColor">Color of the face to search</param>
         /// <param name="color">Color of the edge to search</param>
         /// <returns>Position of edge</returns>
-        public FaceName search_edge(FaceVal faceColor, FaceVal color)
+        public FaceName Search_edge(FaceVal faceColor, FaceVal color)
         {
             if (Cube.Up[0, 1] == faceColor && Cube.Back[0, 1] == color) return FaceName.TopFaceUp;
             if (Cube.Up[0, 1] == color && Cube.Back[0, 1] == faceColor) return FaceName.TopFaceUpReverse;
@@ -181,7 +181,7 @@ namespace WpfApplication1
         /// <returns>Found corner.
         /// The first letters of the returned enum are the name of the cubie
         /// The numbers are the orientation of the cubie</returns>
-        private static CornerName find_corner(FaceVal color1, FaceVal color2, FaceVal color3, FaceVal a, FaceVal b, FaceVal c,
+        private static CornerName Find_corner(FaceVal color1, FaceVal color2, FaceVal color3, FaceVal a, FaceVal b, FaceVal c,
             CornerName resultBase)
         {
             if (a == color1)
@@ -236,56 +236,56 @@ namespace WpfApplication1
         /// <param name="color2">Second color of corner</param>
         /// <param name="color3">Third color of corner</param>
         /// <returns>Found corner and orientation or cubie</returns>
-        public CornerName search_corner(FaceVal color1, FaceVal color2, FaceVal color3)
+        public CornerName Search_corner(FaceVal color1, FaceVal color2, FaceVal color3)
         {
             // CUBIE Up Left Front
-            var pos = find_corner(color1, color2, color3,
+            var pos = Find_corner(color1, color2, color3,
                 Cube.Up[CubeSize - 1, 0], Cube.Left[0, CubeSize - 1], Cube.Front[0, 0], CornerName.CornerUlf);
             if (pos != CornerName.CornerNone)
                 return pos;
 
             // CUBIE Up Left Back
-            pos = find_corner(color1, color2, color3,
+            pos = Find_corner(color1, color2, color3,
                 Cube.Up[0, 0], Cube.Left[0, 0], Cube.Back[0, CubeSize - 1], CornerName.CornerUlb);
             if (pos != CornerName.CornerNone)
                 return pos;
 
             // CUBIE Up Right Front
-            pos = find_corner(color1, color2, color3,
+            pos = Find_corner(color1, color2, color3,
                 Cube.Up[CubeSize - 1, CubeSize - 1], Cube.Right[0, 0], Cube.Front[0, CubeSize - 1],
                 CornerName.CornerUrf);
             if (pos != CornerName.CornerNone)
                 return pos;
 
             // CUBIE Up Right Back
-            pos = find_corner(color1, color2, color3,
+            pos = Find_corner(color1, color2, color3,
                 Cube.Up[0, CubeSize - 1], Cube.Right[0, CubeSize - 1], Cube.Back[0, 0], CornerName.CornerUrb);
             if (pos != CornerName.CornerNone)
                 return pos;
 
             // CUBIE Down Left Front
-            pos = find_corner(color1, color2, color3,
+            pos = Find_corner(color1, color2, color3,
                 Cube.Down[0, 0], Cube.Left[CubeSize - 1, CubeSize - 1], Cube.Front[CubeSize - 1, 0],
                 CornerName.CornerDlf);
             if (pos != CornerName.CornerNone)
                 return pos;
 
             // CUBIE Down Left Back
-            pos = find_corner(color1, color2, color3,
+            pos = Find_corner(color1, color2, color3,
                 Cube.Down[CubeSize - 1, 0], Cube.Left[CubeSize - 1, 0], Cube.Back[CubeSize - 1, CubeSize - 1],
                 CornerName.CornerDlb);
             if (pos != CornerName.CornerNone)
                 return pos;
 
             // CUBIE Down Right Front
-            pos = find_corner(color1, color2, color3,
+            pos = Find_corner(color1, color2, color3,
                 Cube.Down[0, CubeSize - 1], Cube.Right[CubeSize - 1, 0], Cube.Front[CubeSize - 1, CubeSize - 1],
                 CornerName.CornerDrf);
             if (pos != CornerName.CornerNone)
                 return pos;
 
             // CUBIE Down Right Back
-            pos = find_corner(color1, color2, color3,
+            pos = Find_corner(color1, color2, color3,
                 Cube.Down[CubeSize - 1, CubeSize - 1], Cube.Right[CubeSize - 1, CubeSize - 1],
                 Cube.Back[CubeSize - 1, 0], CornerName.CornerDrb);
 
